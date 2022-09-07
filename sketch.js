@@ -1,5 +1,6 @@
 
-let cloudx = 0
+let cloudx1 = -170;
+let cloudx2 = -45;
 
 function setup() {
   frameRate(25);
@@ -15,10 +16,19 @@ function draw() {
   fill( 44, 146, 237);
   rect( 0, 0, 400, 115);
 
-  createCloud( cloudx + 20, 25);
-  createCloud( cloudx + 100, 100);
+  createCloud( cloudx1, 25);
+  createCloud( cloudx2, 100);
 
-  cloudx = cloudx + 1;
+  cloudx1 = cloudx1 + 1;
+  cloudx2 = cloudx2 + 1;
+
+  if (cloudx1 > 400) {
+    cloudx1 = -35
+  }
+  
+  if (cloudx2 > 400) {
+    cloudx2 = -35
+  }
 
 }
 
@@ -83,7 +93,7 @@ function createLand() {
   //hill house
   createHill( 320, 250, 150, 150);
   //hill castle
-  createHill( 40, 250, 180, 180);
+  createHill( 40, 250, 130, 130);
   
   //grass
   rectMode(CORNER);
@@ -103,6 +113,16 @@ function createHouse() {
   noStroke();
   fill( 235, 80, 32);
   triangle( 307, 148, 320, 131, 333, 148); 
+  //door
+  noStroke();
+  fill(213,215,151);
+  rect( 313, 175, 6, 18);
+
+  noStroke();
+  fill( 153, 231, 255);
+  rect(313, 155, 6, 6);
+  rect(327, 155, 6, 6);
+  rect(327, 169, 6, 6);
 
 }
 
@@ -110,7 +130,18 @@ function createCastle() {
   rectMode(CENTER);
   noStroke();
   fill(119);
-  rect( 40, 52, 25, 40);
+  rect( 40, 167, 26, 40);
+  
+  rectMode(CORNER);
+  noStroke();
+  fill(119);
+  rect( 27, 142, 5, 5);
+  rect( 38, 142, 5, 5);
+  rect( 48, 142, 5, 5);
+
+  noStroke();
+  fill(0);
+  ellipse( 40, 185, 8, 20);
   
 }
 
